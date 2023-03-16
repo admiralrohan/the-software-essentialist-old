@@ -2,7 +2,7 @@ import fizzbuzz from "./fizzbuzz";
 
 describe("fizzbuzz", () => {
   it("should accept from 1 to 100", () => {
-    fizzbuzz();
+    fizzbuzz(3, 15);
     // expect(fizzbuzz()).toBeTruthy();
   });
   it("should not accept numbers less than 1", () => {});
