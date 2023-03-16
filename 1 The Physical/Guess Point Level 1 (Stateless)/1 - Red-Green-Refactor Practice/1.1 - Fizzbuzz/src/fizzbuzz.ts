@@ -1,3 +1,3 @@
-function fizzbuzz(start: number, end: number) {}
+function fizzbuzz(inputs: number[]) {}
 
 export default fizzbuzz;
