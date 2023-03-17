@@ -10,5 +10,7 @@ describe("fizzbuzz", () => {
   it("should not accept numbers greater than 100", () => {
     expect(() => fizzbuzz([101])).toThrow();
   });
-  it("should return numbers as strings", () => {});
+  it("should return 'FizzBuzz7FizzBuzz' for '[3, 5, 7, 15]'", () => {
+    expect(fizzbuzz([3, 5, 7, 15])).toBe("FizzBuzz7FizzBuzz");
+  });
 });
