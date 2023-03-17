@@ -4,9 +4,15 @@ function fizzbuzz(inputs: number[]) {
     if (currVal > 100) throw new Error("More that 100 is not allowed");
 
     let valueToAdd = currVal.toString();
-    if (currVal % 3 === 0) valueToAdd = "Fizz";
-    if (currVal % 5 === 0) valueToAdd = "Buzz";
-    if (currVal % 3 === 0 && currVal % 5 === 0) valueToAdd = "FizzBuzz";
+
+    const isMultipleOfThree = currVal % 3 === 0;
+    if (isMultipleOfThree) valueToAdd = "Fizz";
+
+    const isMultipleOfFive = currVal % 5 === 0;
+    if (isMultipleOfFive) valueToAdd = "Buzz";
+
+    const isMultipleOfThreeAndFive = currVal % 3 === 0 && currVal % 5 === 0;
+    if (isMultipleOfThreeAndFive) valueToAdd = "FizzBuzz";
 
     return acc + valueToAdd;
   }, "");
