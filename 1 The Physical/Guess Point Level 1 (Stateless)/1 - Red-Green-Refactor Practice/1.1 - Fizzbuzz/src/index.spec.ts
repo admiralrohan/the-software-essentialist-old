@@ -7,6 +7,8 @@ describe("fizzbuzz", () => {
   it("should not accept numbers less than 1", () => {
     expect(() => fizzbuzz([-1])).toThrow();
   });
-  it("should not accept numbers greater than 100", () => {});
+  it("should not accept numbers greater than 100", () => {
+    expect(() => fizzbuzz([101])).toThrow();
+  });
   it("should return numbers as strings", () => {});
 });
