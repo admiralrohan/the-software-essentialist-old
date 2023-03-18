@@ -1,8 +1,9 @@
-function palindrome(word: string) {
-  const reversedWord = word.split("").reverse().join("");
+function palindrome(phrase: string) {
+  const reversedPhrase = phrase.split("").reverse().join("");
+
   return (
-    word.split(" ").join("").toLowerCase() ===
-    reversedWord.split(" ").join("").toLowerCase()
+    phrase.split(" ").join("").toLowerCase() ===
+    reversedPhrase.split(" ").join("").toLowerCase()
   );
 }
 
