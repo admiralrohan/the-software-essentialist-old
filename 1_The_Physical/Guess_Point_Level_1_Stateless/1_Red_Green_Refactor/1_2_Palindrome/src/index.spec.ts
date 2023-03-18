@@ -1,4 +1,7 @@
+import palindrome from "./index";
 
-describe('palindrome checker', () => {
-
-})
+describe("palindrome checker", () => {
+  it("'mom' should be palindrome", () => {
+    expect(palindrome("mom")).toBeTruthy();
+  });
+});
