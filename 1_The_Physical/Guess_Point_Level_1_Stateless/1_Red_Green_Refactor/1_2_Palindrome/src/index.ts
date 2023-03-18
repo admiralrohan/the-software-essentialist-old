@@ -1,6 +1,6 @@
 function palindrome(word: string) {
   const reversedWord = word.split("").reverse().join("");
-  return word === reversedWord;
+  return word.toLowerCase() === reversedWord.toLowerCase();
 }
 
 export default palindrome;
