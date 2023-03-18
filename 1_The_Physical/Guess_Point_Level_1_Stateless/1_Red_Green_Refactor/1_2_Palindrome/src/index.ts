@@ -1,9 +1,14 @@
-function palindrome(phrase: string) {
-  const reversedPhrase = phrase.split("").reverse().join("");
+function getReversedPhrase(phrase: string) {
+  return phrase.split("").reverse().join("");
+}
 
+function getFormattedPhrase(phrase: string) {
+  return phrase.split(" ").join("").toLowerCase();
+}
+
+function palindrome(phrase: string) {
   return (
-    phrase.split(" ").join("").toLowerCase() ===
-    reversedPhrase.split(" ").join("").toLowerCase()
+    getFormattedPhrase(phrase) === getFormattedPhrase(getReversedPhrase(phrase))
   );
 }
 
