@@ -12,7 +12,7 @@ function isValidPassword(password: string): {
     errors.push("Less than 5 characters");
   }
 
-  return { isValid, errors: [] };
+  return { isValid, errors };
 }
 
 export default isValidPassword;
