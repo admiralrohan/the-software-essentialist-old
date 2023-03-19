@@ -6,4 +6,10 @@ describe("password validator", () => {
     const { result } = isValidPassword(password);
     expect(result).toBeTruthy();
   });
+
+  it("password should not be valid if less than 5 characters", () => {
+    const password = "pass";
+    const { result } = isValidPassword(password);
+    expect(result).toBeFalsy();
+  });
 });
