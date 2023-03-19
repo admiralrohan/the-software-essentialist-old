@@ -15,6 +15,10 @@ function isValidPassword(password: string): {
     isValid = false;
     errors.push("More than 15 characters");
   }
+  if (!Boolean(password.match(/\d+/))) {
+    isValid = false;
+    errors.push("Less than 1 digit");
+  }
 
   return { isValid, errors };
 }
