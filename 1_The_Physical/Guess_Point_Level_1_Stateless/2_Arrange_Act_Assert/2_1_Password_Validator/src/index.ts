@@ -1,5 +1,5 @@
 function isValidPassword(password: string): {
-  result: boolean;
+  isValid: boolean;
   errors: string[];
 } {
   // Default states
@@ -12,7 +12,7 @@ function isValidPassword(password: string): {
     errors.push("Less than 5 characters");
   }
 
-  return { result: isValid, errors: [] };
+  return { isValid, errors: [] };
 }
 
 export default isValidPassword;
