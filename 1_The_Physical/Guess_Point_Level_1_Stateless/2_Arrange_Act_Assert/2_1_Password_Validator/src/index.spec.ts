@@ -1,14 +1,6 @@
 import isValidPassword from "./index";
 
 describe("password validator", () => {
-  it.skip("password should be valid if between 5 and 15 characters", () => {
-    const password = "password";
-    const { isValid, errors } = isValidPassword(password);
-
-    expect(isValid).toBeTruthy();
-    expect(errors.length).toBe(0);
-  });
-
   it("password should not be valid if less than 5 characters", () => {
     const password = "pass";
     const { isValid, errors } = isValidPassword(password);
@@ -39,5 +31,13 @@ describe("password validator", () => {
 
     expect(isValid).toBeFalsy();
     expect(errors.includes("Less than 1 uppercase letter")).toBeTruthy();
+  });
+
+  it("password should be valid if all conditions are met", () => {
+    const password = "passwoRD123";
+    const { isValid, errors } = isValidPassword(password);
+
+    expect(isValid).toBeTruthy();
+    expect(errors.length).toBe(0);
   });
 });
