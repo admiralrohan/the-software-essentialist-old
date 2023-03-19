@@ -16,4 +16,12 @@ describe("password validator", () => {
     expect(isValid).toBeFalsy();
     expect(errors.includes("Less than 5 characters")).toBeTruthy();
   });
+
+  it("password should not be valid if more than 15 characters", () => {
+    const password = "passwordpassword";
+    const { isValid, errors } = isValidPassword(password);
+
+    expect(isValid).toBeFalsy();
+    expect(errors.includes("More than 15 characters")).toBeTruthy();
+  });
 });
