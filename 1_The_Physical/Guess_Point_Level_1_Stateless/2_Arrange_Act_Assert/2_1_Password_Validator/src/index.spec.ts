@@ -32,4 +32,12 @@ describe("password validator", () => {
     expect(isValid).toBeFalsy();
     expect(errors.includes("Less than 1 digit")).toBeTruthy();
   });
+
+  it("password should not be valid if has less than 1 uppercase letter", () => {
+    const password = "password";
+    const { isValid, errors } = isValidPassword(password);
+
+    expect(isValid).toBeFalsy();
+    expect(errors.includes("Less than 1 uppercase letter")).toBeTruthy();
+  });
 });

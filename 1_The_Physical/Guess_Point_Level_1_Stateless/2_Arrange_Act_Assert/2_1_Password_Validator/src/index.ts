@@ -19,6 +19,10 @@ function isValidPassword(password: string): {
     isValid = false;
     errors.push("Less than 1 digit");
   }
+  if (!Boolean(password.match(/A-Z/))) {
+    isValid = false;
+    errors.push("Less than 1 uppercase letter");
+  }
 
   return { isValid, errors };
 }
