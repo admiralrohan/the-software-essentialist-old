@@ -3,8 +3,10 @@ import isValidPassword from "./index";
 describe("password validator", () => {
   it("password should be valid if between 5 and 15 characters", () => {
     const password = "password";
-    const { isValid } = isValidPassword(password);
+    const { isValid, errors } = isValidPassword(password);
+
     expect(isValid).toBeTruthy();
+    expect(errors.length).toBe(0);
   });
 
   it("password should not be valid if less than 5 characters", () => {
