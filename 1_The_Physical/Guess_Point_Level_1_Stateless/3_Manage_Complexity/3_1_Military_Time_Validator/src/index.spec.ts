@@ -12,4 +12,8 @@ describe("military time validator", () => {
   it("'22:00 - 23:12' should be valid range", () => {
     expect(isValidMilitaryTimeRange("22:00 - 23:12")).toBeTruthy();
   });
+
+  it("empty string should not be valid range", () => {
+    expect(isValidMilitaryTimeRange("")).toBeFalsy();
+  });
 });
