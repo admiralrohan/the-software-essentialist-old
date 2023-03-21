@@ -1,8 +1,8 @@
-function isValidHour(number: number): boolean {
-  return number >= 0 && number <= 23;
+function isValidHour(value: number): boolean {
+  return value >= 0 && value <= 23;
 }
-function isValidMinute(number: number): boolean {
-  return number >= 0 && number <= 60;
+function isValidMinute(value: number): boolean {
+  return value >= 0 && value <= 60;
 }
 function isValidTime(time: number[]): boolean {
   const [hour, minute] = time;
