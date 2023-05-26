@@ -16,4 +16,8 @@ describe("fizzbuzz", () => {
   it("knows that 15 returns 'FizzBuzz' as this is multiple of 3", () => {
     expect(fizzbuzz(15)).toBe("FizzBuzz");
   });
+
+  it("knows that 9 returns 'Fizz' as this is multiple of 3", () => {
+    expect(fizzbuzz(9)).toBe("Fizz");
+  });
 });
