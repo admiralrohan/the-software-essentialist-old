@@ -40,4 +40,8 @@ describe("fizzbuzz", () => {
   it("knows that -12 throws error as this is outside of range of 1 and 100", () => {
     expect(() => fizzbuzz(-12)).toThrowError();
   });
+
+  it("knows that NaN throws error as this is outside of range of 1 and 100", () => {
+    expect(() => fizzbuzz(NaN)).toThrowError();
+  });
 });
