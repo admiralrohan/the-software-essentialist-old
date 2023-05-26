@@ -20,4 +20,8 @@ describe("fizzbuzz", () => {
   it("knows that 9 returns 'Fizz' as this is multiple of 3", () => {
     expect(fizzbuzz(9)).toBe("Fizz");
   });
+
+  it("knows that 43 returns '43' as this is multiple of 3 or 5", () => {
+    expect(fizzbuzz(43)).toBe("43");
+  });
 });
