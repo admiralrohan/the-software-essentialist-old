@@ -1,1 +1,3 @@
-export default function fizzbuzz() {}
+export default function fizzbuzz(input: number): string {
+  return "";
+}
