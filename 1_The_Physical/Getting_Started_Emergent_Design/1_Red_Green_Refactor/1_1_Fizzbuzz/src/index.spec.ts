@@ -9,11 +9,11 @@ describe("fizzbuzz", () => {
     expect(fizzbuzz(3)).toBe("Fizz");
   });
 
-  it("knows that 5 returns 'Buzz' as this is multiple of 3", () => {
+  it("knows that 5 returns 'Buzz' as this is multiple of 5", () => {
     expect(fizzbuzz(5)).toBe("Buzz");
   });
 
-  it("knows that 15 returns 'FizzBuzz' as this is multiple of 3", () => {
+  it("knows that 15 returns 'FizzBuzz' as this is multiple of both 3 and 5", () => {
     expect(fizzbuzz(15)).toBe("FizzBuzz");
   });
 
