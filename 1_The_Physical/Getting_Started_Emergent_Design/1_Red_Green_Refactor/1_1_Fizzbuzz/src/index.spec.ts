@@ -4,4 +4,8 @@ describe("fizzbuzz", () => {
   it("knows that each return value is a string", () => {
     expect(typeof fizzbuzz(1)).toBe("string");
   });
+
+  it("knows that 3 returns 'Fizz' as this is multiple of 3", () => {
+    expect(fizzbuzz(3)).toBe("Fizz");
+  });
 });
