@@ -20,4 +20,8 @@ describe("palindrome checker", () => {
   it('"xMomx" returns true', () => {
     expect(palindrome("xMomx")).toBeTruthy();
   });
+
+  it('"Was It A Rat I Saw" returns true', () => {
+    expect(palindrome("Was It A Rat I Saw")).toBeTruthy();
+  });
 });
