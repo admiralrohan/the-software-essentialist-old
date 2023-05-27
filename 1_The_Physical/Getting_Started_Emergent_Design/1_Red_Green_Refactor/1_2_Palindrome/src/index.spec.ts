@@ -28,4 +28,8 @@ describe("palindrome checker", () => {
   it('"Never Odd or Even" returns true', () => {
     expect(palindrome("Never Odd or Even")).toBeTruthy();
   });
+
+  it('"Never Odd or Even1" returns false', () => {
+    expect(palindrome("Never Odd or Even1")).toBeFalsy();
+  });
 });
