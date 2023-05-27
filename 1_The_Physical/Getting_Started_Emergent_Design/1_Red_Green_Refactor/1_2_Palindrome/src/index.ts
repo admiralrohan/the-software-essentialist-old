@@ -1,4 +1,8 @@
 export default function palindrome(input: string): boolean {
-  if (input === "Momx") return false;
-  return true;
+  const reversedInput = input.split("").reverse().join("");
+
+  return (
+    input.toLowerCase().split(" ").join("") ===
+    reversedInput.toLowerCase().split(" ").join("")
+  );
 }
