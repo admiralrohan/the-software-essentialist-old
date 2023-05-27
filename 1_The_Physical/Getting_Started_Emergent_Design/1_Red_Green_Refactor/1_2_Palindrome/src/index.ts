@@ -1,1 +1,3 @@
-export default function palindrome(input: string) {}
+export default function palindrome(input: string): boolean {
+  return true;
+}
