@@ -16,4 +16,8 @@ describe("palindrome checker", () => {
   it('"Momx" returns false', () => {
     expect(palindrome("Momx")).toBeFalsy();
   });
+
+  it('"xMomx" returns true', () => {
+    expect(palindrome("xMomx")).toBeTruthy();
+  });
 });
