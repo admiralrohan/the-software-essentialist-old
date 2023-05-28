@@ -1,9 +1,9 @@
-interface IResult {
+interface IResponse {
   result: boolean;
   errors: string[];
 }
 
-export default function checkPassword(input: string): IResult {
+export default function checkPassword(input: string): IResponse {
   const noOfDigits = input
     .split("")
     .filter((char) => typeof char === "number").length;
