@@ -7,24 +7,19 @@ export default function checkPassword(input: string): IResponse {
   const noOfDigits = input
     .split("")
     .filter((char) => typeof char === "number").length;
+  const noOfUppercaseLetters = input
+    .split("")
+    .filter((char) => char.toUpperCase() === char).length;
   const isValidLength = input.length >= 5 && input.length <= 15;
 
-  if (!isValidLength) {
-    return {
-      result: false,
-      errors: ["InvalidLengthError"],
-    };
-  }
+  const errors: string[] = [];
 
-  if (noOfDigits === 0) {
-    return {
-      result: false,
-      errors: ["NoDigitError"],
-    };
-  }
+  if (!isValidLength) errors.push("InvalidLengthError");
+  if (noOfUppercaseLetters === 0) errors.push("NoUppercaseError");
+  if (noOfDigits === 0) errors.push("NoDigitError");
 
   return {
-    result: true,
-    errors: [],
+    result: errors.length === 0,
+    errors,
   };
 }
