@@ -6,7 +6,7 @@ interface IResponse {
 export default function checkPassword(input: string): IResponse {
   const noOfDigits = input
     .split("")
-    .filter((char) => typeof char === "number").length;
+    .filter((char) => !isNaN(Number(char))).length;
   const noOfUppercaseLetters = input
     .split("")
     .filter((char) => char.toUpperCase() === char).length;

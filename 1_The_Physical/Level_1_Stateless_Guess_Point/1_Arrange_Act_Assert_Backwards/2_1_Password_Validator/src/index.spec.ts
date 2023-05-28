@@ -42,4 +42,11 @@ describe("password validator", () => {
     expect(response.errors).toContain("NoUppercaseError");
     expect(response.errors).toContain("NoDigitError");
   });
+
+  it('knows strings like "pasS123" are valid', () => {
+    const response = checkPassword("pasS123");
+
+    expect(response.result).toBeTruthy();
+    expect(response.errors.length).toEqual(0);
+  });
 });
