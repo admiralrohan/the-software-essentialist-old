@@ -3,14 +3,14 @@ interface IResponse {
   errors: string[];
 }
 
-export default function checkPassword(input: string): IResponse {
-  const noOfDigits = input
+export default function checkPassword(password: string): IResponse {
+  const noOfDigits = password
     .split("")
     .filter((char) => !isNaN(Number(char))).length;
-  const noOfUppercaseLetters = input
+  const noOfUppercaseLetters = password
     .split("")
     .filter((char) => char.toUpperCase() === char).length;
-  const isValidLength = input.length >= 5 && input.length <= 15;
+  const isValidLength = password.length >= 5 && password.length <= 15;
 
   const errors: string[] = [];
 
