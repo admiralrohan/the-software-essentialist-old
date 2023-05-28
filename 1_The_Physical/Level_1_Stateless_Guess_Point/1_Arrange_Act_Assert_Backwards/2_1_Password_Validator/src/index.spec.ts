@@ -1,9 +1,15 @@
+import checkPassword from "./index";
 
-describe('password validator', () => {
+describe("password validator", () => {
+  it('returns an invalid length error when strings like "mom" are less than 5 characters', () => {
+    // arrange
 
-  test('hello', () => {
-    expect("between 5 and 15").toContain('5 and 15')
-  })
-})
+    // act
+    const response = checkPassword("mom");
 
-
+    // assert
+    expect(response.result).toBeFalsy();
+    expect(response.errors.length).toEqual(1);
+    expect(response.errors[0]).toEqual("InvalidLengthError");
+  });
+});
