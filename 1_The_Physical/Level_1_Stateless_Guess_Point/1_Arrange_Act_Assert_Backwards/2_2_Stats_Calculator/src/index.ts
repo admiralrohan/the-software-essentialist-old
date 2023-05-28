@@ -10,6 +10,10 @@ export default function statsCalculator(numbers: number[]): IResponse {
     min: numbers.reduce((min, curr) => (curr < min ? curr : min), 9999),
     max: numbers.reduce((min, curr) => (curr > min ? curr : min), -9999),
     noOfElements: numbers.length,
-    avg: 0,
+    avg: Number(
+      (numbers.reduce((sum, curr) => sum + curr, 0) / numbers.length).toFixed(
+        12
+      )
+    ),
   };
 }

@@ -16,7 +16,8 @@ describe("stats calculator", () => {
     expect(response.noOfElements).toBe(6);
   });
 
-  it.todo(
-    "knows [2, 4, 21, -8, 53, 40] returns average value of 18.666666666667"
-  );
+  it("knows [2, 4, 21, -8, 53, 40] returns average value of 18.666666666667", () => {
+    const response = statsCalculator([2, 4, 21, -8, 53, 40]);
+    expect(response.avg).toBe(18.666666666667);
+  });
 });
