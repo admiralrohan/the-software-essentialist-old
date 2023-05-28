@@ -32,4 +32,14 @@ describe("password validator", () => {
     expect(response.errors.length).toBeGreaterThanOrEqual(1);
     expect(response.errors).toContain("NoUppercaseError");
   });
+
+  it('knows strings like "pass" are invalid for multiple reasons', () => {
+    const response = checkPassword("pass");
+
+    expect(response.result).toBeFalsy();
+    expect(response.errors.length).toBeGreaterThanOrEqual(3);
+    expect(response.errors).toContain("InvalidLengthError");
+    expect(response.errors).toContain("NoUppercaseError");
+    expect(response.errors).toContain("NoDigitError");
+  });
 });
