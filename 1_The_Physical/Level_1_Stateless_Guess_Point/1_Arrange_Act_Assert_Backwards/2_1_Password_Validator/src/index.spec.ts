@@ -20,4 +20,12 @@ describe("password validator", () => {
     expect(response.errors.length).toEqual(1);
     expect(response.errors[0]).toEqual("InvalidLengthError");
   });
+
+  it('returns error when strings like "password1" don\'t have atleast 1 digit', () => {
+    const response = checkPassword("password");
+
+    expect(response.result).toBeFalsy();
+    expect(response.errors.length).toEqual(1);
+    expect(response.errors[0]).toEqual("NoDigitError");
+  });
 });
