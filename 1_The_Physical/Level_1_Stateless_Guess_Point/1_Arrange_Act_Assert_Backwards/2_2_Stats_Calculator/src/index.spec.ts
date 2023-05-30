@@ -17,20 +17,42 @@ describe("stats calculator", () => {
     );
   });
 
-  it(`knows [${STANDARD_INPUT.join(", ")}] returns maximum value of 53`, () => {
-    const response = statsCalculator(STANDARD_INPUT);
-    expect(response.max).toBe(53);
+  describe("should return maximum value among passed numbers", () => {
+    it.each([
+      [STANDARD_INPUT, 53],
+      [INPUT_WITH_ZERO, 4],
+    ])(
+      "knows %p returns maximum value of %p",
+      (input: number[], result: number) => {
+        const response = statsCalculator(input);
+        expect(response.max).toBe(result);
+      }
+    );
   });
 
-  it(`knows [${STANDARD_INPUT.join(", ")}] returns no of elements of 6`, () => {
-    const response = statsCalculator(STANDARD_INPUT);
-    expect(response.noOfElements).toBe(6);
+  describe("should return no of elements among passed numbers", () => {
+    it.each([
+      [STANDARD_INPUT, 6],
+      [INPUT_WITH_ZERO, 4],
+    ])(
+      "knows %p returns no of elements of %p",
+      (input: number[], result: number) => {
+        const response = statsCalculator(input);
+        expect(response.noOfElements).toBe(result);
+      }
+    );
   });
 
-  it(`knows [${STANDARD_INPUT.join(
-    ", "
-  )}] returns average value of 18.666666666667`, () => {
-    const response = statsCalculator(STANDARD_INPUT);
-    expect(response.avg).toBe(18.666666666667);
+  describe("should return average value among passed numbers", () => {
+    it.each([
+      [STANDARD_INPUT, 18.666666666667],
+      [INPUT_WITH_ZERO, 0],
+    ])(
+      "knows %p returns average value of %p",
+      (input: number[], result: number) => {
+        const response = statsCalculator(input);
+        expect(response.avg).toBe(result);
+      }
+    );
   });
 });
