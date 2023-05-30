@@ -1,13 +1,24 @@
-import statsCalculator from ".";
+import statsCalculator, { IResponse } from ".";
+
+interface IData {
+  input: number[];
+  response: IResponse;
+}
 
 describe("stats calculator", () => {
-  const STANDARD_INPUT = [2, 4, 21, -8, 53, 40];
-  const INPUT_WITH_ZERO = [2, 4, 0, -6];
+  const STANDARD_DATA: IData = {
+    input: [2, 4, 21, -8, 53, 40],
+    response: { min: -8, max: 53, noOfElements: 6, avg: 18.666666666667 },
+  };
+  const DATA_WITH_ZERO: IData = {
+    input: [2, 4, 0, -6],
+    response: { min: -6, max: 4, noOfElements: 4, avg: 0 },
+  };
 
   describe("should return minimum value among passed numbers", () => {
     it.each([
-      [STANDARD_INPUT, -8],
-      [INPUT_WITH_ZERO, -6],
+      [STANDARD_DATA.input, STANDARD_DATA.response.min],
+      [DATA_WITH_ZERO.input, DATA_WITH_ZERO.response.min],
     ])(
       "knows %p returns minimum value of %p",
       (input: number[], result: number) => {
@@ -19,8 +30,8 @@ describe("stats calculator", () => {
 
   describe("should return maximum value among passed numbers", () => {
     it.each([
-      [STANDARD_INPUT, 53],
-      [INPUT_WITH_ZERO, 4],
+      [STANDARD_DATA.input, STANDARD_DATA.response.max],
+      [DATA_WITH_ZERO.input, DATA_WITH_ZERO.response.max],
     ])(
       "knows %p returns maximum value of %p",
       (input: number[], result: number) => {
@@ -32,8 +43,8 @@ describe("stats calculator", () => {
 
   describe("should return no of elements among passed numbers", () => {
     it.each([
-      [STANDARD_INPUT, 6],
-      [INPUT_WITH_ZERO, 4],
+      [STANDARD_DATA.input, STANDARD_DATA.response.noOfElements],
+      [DATA_WITH_ZERO.input, DATA_WITH_ZERO.response.noOfElements],
     ])(
       "knows %p returns no of elements of %p",
       (input: number[], result: number) => {
@@ -45,8 +56,8 @@ describe("stats calculator", () => {
 
   describe("should return average value among passed numbers", () => {
     it.each([
-      [STANDARD_INPUT, 18.666666666667],
-      [INPUT_WITH_ZERO, 0],
+      [STANDARD_DATA.input, STANDARD_DATA.response.avg],
+      [DATA_WITH_ZERO.input, DATA_WITH_ZERO.response.avg],
     ])(
       "knows %p returns average value of %p",
       (input: number[], result: number) => {

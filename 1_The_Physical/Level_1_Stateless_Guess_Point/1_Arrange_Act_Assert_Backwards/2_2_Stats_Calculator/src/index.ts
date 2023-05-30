@@ -1,4 +1,4 @@
-interface IResponse {
+export interface IResponse {
   min: number;
   max: number;
   noOfElements: number;
