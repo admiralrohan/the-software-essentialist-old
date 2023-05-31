@@ -9,16 +9,21 @@ export default function militaryTimeValidator(timeRange: string): boolean {
   const startTime = splittedTimeRange[0];
   const endTime = splittedTimeRange[1];
 
-  const isStartTimeValid =
-    Number(startTime.split(":")[0]) >= 0 &&
-    Number(startTime.split(":")[0]) < 24 &&
-    Number(startTime.split(":")[1]) >= 0 &&
-    Number(startTime.split(":")[1]) < 60;
-  const isEndTimeValid =
-    Number(endTime.split(":")[0]) >= 0 &&
-    Number(endTime.split(":")[0]) < 24 &&
-    Number(endTime.split(":")[1]) >= 0 &&
-    Number(endTime.split(":")[1]) < 60;
+  const isStartTimeValid = isTimeValid(startTime);
+  const isEndTimeValid = isTimeValid(endTime);
 
   return isStartTimeValid && isEndTimeValid;
+}
+
+/**
+ * @param time In this format "22:10"
+ * @returns Whether it's valid time or not
+ */
+function isTimeValid(time: string): boolean {
+  return (
+    Number(time.split(":")[0]) >= 0 &&
+    Number(time.split(":")[0]) < 24 &&
+    Number(time.split(":")[1]) >= 0 &&
+    Number(time.split(":")[1]) < 60
+  );
 }
