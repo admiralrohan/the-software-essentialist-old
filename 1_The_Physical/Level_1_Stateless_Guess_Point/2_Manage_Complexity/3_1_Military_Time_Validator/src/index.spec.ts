@@ -5,27 +5,27 @@ describe("military time validator", () => {
     expect(militaryTimeValidator("01:12 - 14:32")).toBeTruthy();
   });
 
-  it(`knows "25:00 - 12:23" is not valid time range`, () => {
+  it(`knows "22:00 - 23:12" is valid time range`, () => {
+    expect(militaryTimeValidator("22:00 - 23:12")).toBeTruthy();
+  });
+
+  it(`knows "25:00 - 12:23" is not valid time range as hour is outside valid range`, () => {
     expect(militaryTimeValidator("25:00 - 12:23")).toBeFalsy();
   });
 
-  it(`knows "22:00 - 23:73" is not valid time range`, () => {
+  it(`knows "22:00 - 23:73" is not valid time range as minute is outside valid range`, () => {
     expect(militaryTimeValidator("22:00 - 23:73")).toBeFalsy();
-  });
-
-  it(`knows "22:00 - 23:12" is valid time range`, () => {
-    expect(militaryTimeValidator("22:00 - 23:12")).toBeTruthy();
   });
 
   it(`knows empty string is not valid time range`, () => {
     expect(militaryTimeValidator("")).toBeFalsy();
   });
 
-  it(`knows "-22:00 - 23:12" is not valid time range`, () => {
+  it(`knows "-22:00 - 23:12" is not valid time range as hour is outside range`, () => {
     expect(militaryTimeValidator("-22:00 - 23:12")).toBeFalsy();
   });
 
-  it(`knows "22:0000 - 23:12" is not valid time range`, () => {
+  it(`knows "22:0000 - 23:12" is not valid time range as hour has more than 2 characters`, () => {
     expect(militaryTimeValidator("22:0000 - 23:12")).toBeFalsy();
   });
 });
