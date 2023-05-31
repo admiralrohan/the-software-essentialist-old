@@ -28,4 +28,8 @@ describe("military time validator", () => {
   it(`knows "22:0000 - 23:12" is not valid time range as hour has more than 2 characters`, () => {
     expect(militaryTimeValidator("22:0000 - 23:12")).toBeFalsy();
   });
+
+  it(`knows "22:0000 - 23:12" is not valid time range as minute has more than 2 characters`, () => {
+    expect(militaryTimeValidator("22:00 - 23:1200")).toBeFalsy();
+  });
 });
