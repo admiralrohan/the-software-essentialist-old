@@ -3,6 +3,8 @@
  * @returns Whether it is valid time range
  */
 export default function militaryTimeValidator(timeRange: string): boolean {
+  if (timeRange === "") return false;
+
   const splittedTimeRange = timeRange.split("-");
   const startTime = splittedTimeRange[0];
   const endTime = splittedTimeRange[1];
