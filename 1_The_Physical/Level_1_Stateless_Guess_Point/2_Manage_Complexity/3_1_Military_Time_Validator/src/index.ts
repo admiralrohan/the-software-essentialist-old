@@ -6,8 +6,7 @@ export default function militaryTimeValidator(timeRange: string): boolean {
   if (timeRange === "") return false;
 
   const splittedTimeRange = timeRange.split("-");
-  const startTime = splittedTimeRange[0];
-  const endTime = splittedTimeRange[1];
+  const [startTime, endTime] = splittedTimeRange;
 
   const isStartTimeValid = isTimeValid(startTime);
   const isEndTimeValid = isTimeValid(endTime);
@@ -20,10 +19,7 @@ export default function militaryTimeValidator(timeRange: string): boolean {
  * @returns Whether it's valid time or not
  */
 function isTimeValid(time: string): boolean {
-  return (
-    Number(time.split(":")[0]) >= 0 &&
-    Number(time.split(":")[0]) < 24 &&
-    Number(time.split(":")[1]) >= 0 &&
-    Number(time.split(":")[1]) < 60
-  );
+  const [hour, min] = time.split(":").map((item) => Number(item));
+
+  return hour >= 0 && hour < 24 && min >= 0 && min < 60;
 }
