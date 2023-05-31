@@ -16,4 +16,8 @@ describe("military time validator", () => {
   it(`knows empty string is not valid time range`, () => {
     expect(militaryTimeValidator("")).toBeFalsy();
   });
+
+  it(`knows "-22:00 - 23:12" is not valid time range`, () => {
+    expect(militaryTimeValidator("-22:00 - 23:12")).toBeFalsy();
+  });
 });
