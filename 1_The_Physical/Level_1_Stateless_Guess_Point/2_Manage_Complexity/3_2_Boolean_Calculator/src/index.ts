@@ -1,15 +1,57 @@
-const converter: { [key: string]: boolean } = {
+const toBool: { [key: string]: boolean } = {
   FALSE: false,
   TRUE: true,
 };
 
+// TRUE OR FALSE AND NOT FALSE
+// [ 'TRUE', 'OR', 'FALSE', 'AND', 'NOT', 'FALSE' ]
+
 export default function booleanCalculator(expression: string): boolean {
-  const words = expression.split(" ");
-  console.log(words);
+  let words = expression.split(" ");
+  let wordsLength = words.length;
+  // console.log(words);
+
+  if (words.length > 3) {
+    for (let i = 0; i < wordsLength; ) {
+      if (words[i] === "NOT") {
+        const result = words[i + 1] === "TRUE" ? "FALSE" : "TRUE";
+        words[i] = result;
+        words = words.filter((_, index) => index !== i + 1);
+        wordsLength = words.length;
+      } else {
+        i++;
+      }
+    }
+    // console.log(words);
+
+    for (let i = 0; i < words.length; ) {
+      if (words[i] === "AND") {
+        const result = toBool[words[i - 1]] && toBool[words[i + 1]];
+        words[i] = result === true ? "TRUE" : "FALSE";
+        words = words.filter((_, index) => index !== i - 1 && index !== i + 1);
+        wordsLength = words.length;
+      } else {
+        i++;
+      }
+    }
+    // console.log(words);
+
+    for (let i = 0; i < words.length; ) {
+      if (words[i] === "OR") {
+        const result = toBool[words[i - 1]] || toBool[words[i + 1]];
+        words[i] = result === true ? "TRUE" : "FALSE";
+        words = words.filter((_, index) => index !== i - 1 && index !== i + 1);
+        wordsLength = words.length;
+      } else {
+        i++;
+      }
+    }
+    // console.log(words);
+  }
 
   if (words.length === 3) {
-    if (words[1] === "AND") return converter[words[0]] && converter[words[2]];
-    return converter[words[0]] || converter[words[2]];
+    if (words[1] === "AND") return toBool[words[0]] && toBool[words[2]];
+    return toBool[words[0]] || toBool[words[2]];
   }
 
   if (words.length === 2) {
@@ -17,5 +59,5 @@ export default function booleanCalculator(expression: string): boolean {
     return true;
   }
 
-  return converter[words[0]];
+  return toBool[words[0]];
 }

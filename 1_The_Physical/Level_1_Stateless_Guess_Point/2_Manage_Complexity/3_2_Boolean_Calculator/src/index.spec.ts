@@ -38,7 +38,9 @@ describe("boolean calculator", () => {
     it(`knows "TRUE OR TRUE OR TRUE AND FALSE" returns true`, () => {
       expect(booleanCalculator("TRUE OR TRUE OR TRUE AND FALSE")).toBeTruthy();
     });
-    it.todo(`knows "TRUE OR FALSE AND NOT FALSE" returns false`);
+    it(`knows "TRUE OR FALSE AND NOT FALSE" returns false`, () => {
+      expect(booleanCalculator("TRUE OR FALSE AND NOT FALSE")).toBeTruthy();
+    });
   });
 
   describe("should handle parenthesis", () => {
