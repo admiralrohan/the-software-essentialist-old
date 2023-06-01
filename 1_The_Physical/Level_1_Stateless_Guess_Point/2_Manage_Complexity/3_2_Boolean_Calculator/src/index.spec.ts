@@ -5,7 +5,9 @@ describe("boolean calculator", () => {
     it(`knows "TRUE" returns true`, () => {
       expect(booleanCalculator("TRUE")).toBeTruthy();
     });
-    it.todo(`knows "FALSE" returns false`);
+    it(`knows "FALSE" returns false`, () => {
+      expect(booleanCalculator("FALSE")).toBeFalsy();
+    });
   });
 
   describe("should handle NOT operator", () => {
