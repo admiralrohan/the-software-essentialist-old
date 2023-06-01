@@ -29,7 +29,9 @@ describe("boolean calculator", () => {
     it(`knows "TRUE OR FALSE" returns true`, () => {
       expect(booleanCalculator("TRUE OR FALSE")).toBeTruthy();
     });
-    it.todo(`knows "FALSE OR FALSE" returns false`);
+    it(`knows "FALSE OR FALSE" returns false`, () => {
+      expect(booleanCalculator("FALSE OR FALSE")).toBeFalsy();
+    });
   });
 
   describe("should handle combination of operators w/ precedence", () => {

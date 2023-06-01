@@ -9,7 +9,7 @@ export default function booleanCalculator(expression: string): boolean {
 
   if (words.length === 3) {
     if (words[1] === "AND") return converter[words[0]] && converter[words[2]];
-    return true;
+    return converter[words[0]] || converter[words[2]];
   }
 
   if (words.length === 2) {
