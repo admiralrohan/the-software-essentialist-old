@@ -17,7 +17,9 @@ describe("boolean calculator", () => {
   });
 
   describe("should handle AND operator", () => {
-    it.todo(`knows "TRUE AND FALSE" returns false`);
+    it(`knows "TRUE AND FALSE" returns false`, () => {
+      expect(booleanCalculator("TRUE AND FALSE")).toBeFalsy();
+    });
     it.todo(`knows "TRUE AND TRUE" returns true`);
   });
 
