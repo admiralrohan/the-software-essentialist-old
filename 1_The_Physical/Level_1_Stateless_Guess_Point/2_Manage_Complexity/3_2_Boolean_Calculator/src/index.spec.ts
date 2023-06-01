@@ -26,7 +26,9 @@ describe("boolean calculator", () => {
   });
 
   describe("should handle OR operator", () => {
-    it.todo(`knows "TRUE OR FALSE" returns true`);
+    it(`knows "TRUE OR FALSE" returns true`, () => {
+      expect(booleanCalculator("TRUE OR FALSE")).toBeTruthy();
+    });
     it.todo(`knows "FALSE OR FALSE" returns false`);
   });
 
