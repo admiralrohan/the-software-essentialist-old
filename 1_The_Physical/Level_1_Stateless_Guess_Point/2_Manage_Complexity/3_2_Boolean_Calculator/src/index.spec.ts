@@ -20,7 +20,9 @@ describe("boolean calculator", () => {
     it(`knows "TRUE AND FALSE" returns false`, () => {
       expect(booleanCalculator("TRUE AND FALSE")).toBeFalsy();
     });
-    it.todo(`knows "TRUE AND TRUE" returns true`);
+    it(`knows "TRUE AND TRUE" returns true`, () => {
+      expect(booleanCalculator("TRUE AND TRUE")).toBeTruthy();
+    });
   });
 
   describe("should handle OR operator", () => {
