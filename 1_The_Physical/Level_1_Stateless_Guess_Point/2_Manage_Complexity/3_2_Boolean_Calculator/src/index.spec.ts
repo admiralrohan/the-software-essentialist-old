@@ -1,6 +1,10 @@
+import booleanCalculator from ".";
+
 describe("boolean calculator", () => {
   describe("should handle single values", () => {
-    it.todo(`knows "TRUE" returns true`);
+    it(`knows "TRUE" returns true`, () => {
+      expect(booleanCalculator("TRUE")).toBeTruthy();
+    });
     it.todo(`knows "FALSE" returns false`);
   });
 
