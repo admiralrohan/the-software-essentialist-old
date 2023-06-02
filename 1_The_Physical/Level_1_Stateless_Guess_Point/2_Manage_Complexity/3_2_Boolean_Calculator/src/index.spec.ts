@@ -50,5 +50,8 @@ describe("boolean calculator", () => {
     it(`knows "NOT (TRUE AND TRUE)" returns false`, () => {
       expect(booleanCalculator("NOT (TRUE AND TRUE)")).toBeFalsy();
     });
+    it(`knows "NOT (TRUE AND TRUE) OR TRUE" returns true`, () => {
+      expect(booleanCalculator("NOT (TRUE AND TRUE) OR TRUE")).toBeTruthy();
+    });
   });
 });
