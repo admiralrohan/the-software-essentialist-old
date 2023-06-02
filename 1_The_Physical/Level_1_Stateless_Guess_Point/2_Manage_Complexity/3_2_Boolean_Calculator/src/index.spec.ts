@@ -47,6 +47,8 @@ describe("boolean calculator", () => {
     it(`knows "(TRUE OR TRUE OR TRUE) AND FALSE" returns false`, () => {
       expect(booleanCalculator("(TRUE OR TRUE OR TRUE) AND FALSE")).toBeFalsy();
     });
-    it.todo(`knows "NOT (TRUE AND TRUE)" returns false`);
+    it(`knows "NOT (TRUE AND TRUE)" returns false`, () => {
+      expect(booleanCalculator("NOT (TRUE AND TRUE)")).toBeFalsy();
+    });
   });
 });
