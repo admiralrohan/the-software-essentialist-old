@@ -6,10 +6,47 @@ const toBool: { [key: string]: boolean } = {
 // TRUE OR FALSE AND NOT FALSE
 // [ 'TRUE', 'OR', 'FALSE', 'AND', 'NOT', 'FALSE' ]
 
+// (TRUE OR TRUE OR TRUE) AND FALSE
+
 export default function booleanCalculator(expression: string): boolean {
   let words = expression.split(" ");
+
+  let wordsWithParenthesis: any = [];
+  for (let i = 0; i < words.length; ) {
+    if (words[i][0] === "(") {
+      const tempWords = [words[i].slice(1)];
+      i++;
+
+      while (words[i][words[i].length - 1] !== ")" || i > 10) {
+        tempWords.push(words[i]);
+        i++;
+      }
+      tempWords.push(words[i].slice(0, -1));
+      i++;
+      wordsWithParenthesis.push(tempWords);
+    } else {
+      wordsWithParenthesis.push(words[i]);
+      i++;
+    }
+  }
+
+  // console.log(words, wordsWithParenthesis);
+
+  for (let i = 0; i < wordsWithParenthesis.length; i++) {
+    const word = wordsWithParenthesis[i];
+    if (Array.isArray(word)) {
+      wordsWithParenthesis[i] = processExpressionWithoutParenthesis(word);
+    }
+  }
+
+  // console.log("After", wordsWithParenthesis);
+
+  const finalResult = processExpressionWithoutParenthesis(wordsWithParenthesis);
+  return toBool[finalResult];
+}
+
+function processExpressionWithoutParenthesis(words: string[]): string {
   let wordsLength = words.length;
-  // console.log(words);
 
   for (let i = 0; i < wordsLength; ) {
     if (words[i] === "NOT") {
@@ -21,7 +58,6 @@ export default function booleanCalculator(expression: string): boolean {
       i++;
     }
   }
-  // console.log(words);
 
   for (let i = 0; i < words.length; ) {
     if (words[i] === "AND") {
@@ -33,7 +69,6 @@ export default function booleanCalculator(expression: string): boolean {
       i++;
     }
   }
-  // console.log(words);
 
   for (let i = 0; i < words.length; ) {
     if (words[i] === "OR") {
@@ -45,7 +80,6 @@ export default function booleanCalculator(expression: string): boolean {
       i++;
     }
   }
-  // console.log(words);
 
-  return toBool[words[0]];
+  return words[0];
 }

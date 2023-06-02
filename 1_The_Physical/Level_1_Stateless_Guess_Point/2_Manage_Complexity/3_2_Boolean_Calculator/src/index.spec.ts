@@ -44,7 +44,9 @@ describe("boolean calculator", () => {
   });
 
   describe("should handle parenthesis", () => {
-    it.todo(`knows "(TRUE OR TRUE OR TRUE) AND FALSE" returns false`);
+    it(`knows "(TRUE OR TRUE OR TRUE) AND FALSE" returns false`, () => {
+      expect(booleanCalculator("(TRUE OR TRUE OR TRUE) AND FALSE")).toBeFalsy();
+    });
     it.todo(`knows "NOT (TRUE AND TRUE)" returns false`);
   });
 });
