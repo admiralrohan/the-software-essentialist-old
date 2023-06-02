@@ -59,4 +59,12 @@ describe("boolean calculator", () => {
       ).toBeTruthy();
     });
   });
+
+  describe("should handle multiple parenthesis", () => {
+    it(`knows "(FALSE AND TRUE) AND NOT (TRUE AND TRUE) OR TRUE" returns true`, () => {
+      expect(
+        booleanCalculator("(FALSE AND TRUE) AND NOT (TRUE AND TRUE) OR TRUE")
+      ).toBeTruthy();
+    });
+  });
 });
