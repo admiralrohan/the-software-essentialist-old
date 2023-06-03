@@ -6,6 +6,7 @@ const toBool: { [key: string]: boolean } = {
 export default function booleanCalculator(expression: string): boolean {
   const words = expression.split(" ");
 
+  // First extract out sub-expressions from parenthesis, so we can focus on solving them
   let wordsWithParenthesis: (string | string[])[] = [];
   for (let i = 0; i < words.length; ) {
     if (words[i][0] === "(") {
@@ -40,6 +41,7 @@ export default function booleanCalculator(expression: string): boolean {
 function processExpressionWithoutParenthesis(words: string[]): string {
   let wordsLength = words.length;
 
+  // NOT is higher on priority so lets solve those sub-expression first
   for (let i = 0; i < wordsLength; ) {
     if (words[i] === "NOT") {
       const result = words[i + 1] === "TRUE" ? "FALSE" : "TRUE";
@@ -51,6 +53,7 @@ function processExpressionWithoutParenthesis(words: string[]): string {
     }
   }
 
+  // Then solve AND sub-expressions
   for (let i = 0; i < words.length; ) {
     if (words[i] === "AND") {
       const result = toBool[words[i - 1]] && toBool[words[i + 1]];
@@ -62,6 +65,7 @@ function processExpressionWithoutParenthesis(words: string[]): string {
     }
   }
 
+  // And at the end solve OR sub-expressions
   for (let i = 0; i < words.length; ) {
     if (words[i] === "OR") {
       const result = toBool[words[i - 1]] || toBool[words[i + 1]];
