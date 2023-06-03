@@ -3,21 +3,16 @@ const toBool: { [key: string]: boolean } = {
   TRUE: true,
 };
 
-// TRUE OR FALSE AND NOT FALSE
-// [ 'TRUE', 'OR', 'FALSE', 'AND', 'NOT', 'FALSE' ]
-
-// (TRUE OR TRUE OR TRUE) AND FALSE
-
 export default function booleanCalculator(expression: string): boolean {
-  let words = expression.split(" ");
+  const words = expression.split(" ");
 
-  let wordsWithParenthesis: any = [];
+  let wordsWithParenthesis: (string | string[])[] = [];
   for (let i = 0; i < words.length; ) {
     if (words[i][0] === "(") {
       const tempWords = [words[i].slice(1)];
       i++;
 
-      while (words[i][words[i].length - 1] !== ")" || i > 10) {
+      while (words[i][words[i].length - 1] !== ")") {
         tempWords.push(words[i]);
         i++;
       }
@@ -30,18 +25,15 @@ export default function booleanCalculator(expression: string): boolean {
     }
   }
 
-  // console.log(words, wordsWithParenthesis);
+  const wordsWithoutNesting: string[] = [];
+  wordsWithParenthesis.forEach((word) => {
+    const newWord = Array.isArray(word)
+      ? processExpressionWithoutParenthesis(word)
+      : word;
+    wordsWithoutNesting.push(newWord);
+  });
 
-  for (let i = 0; i < wordsWithParenthesis.length; i++) {
-    const word = wordsWithParenthesis[i];
-    if (Array.isArray(word)) {
-      wordsWithParenthesis[i] = processExpressionWithoutParenthesis(word);
-    }
-  }
-
-  // console.log("After", wordsWithParenthesis);
-
-  const finalResult = processExpressionWithoutParenthesis(wordsWithParenthesis);
+  const finalResult = processExpressionWithoutParenthesis(wordsWithoutNesting);
   return toBool[finalResult];
 }
 
